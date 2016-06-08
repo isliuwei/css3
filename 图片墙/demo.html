@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片墙demo</title>
+	<style>
+		body{
+			position: relative;
+			background: #eee;
+		}
+		.pic{
+			max-width: 150px;
+			padding: 15px 15px;
+			border: 1px solid #eee;
+			box-shadow: 2px 2px 2px rgba(50,50,50,0.4);
+			background: #fff;
+			cursor: pointer;
+			transition: all ease-in 1.0s;
+			-webkit-transition: all ease-in 1.0s;
+			opacity: 0.6;
+		}
+		.pic1{
+			position: absolute;
+			top: 80px;
+			left: 80px;
+			-webkit-transform: rotate(25deg);
+			transform: rotate(25deg);
+		}
+		.pic2{
+			position: absolute;
+			top: 180px;
+			left: 200px;
+			-webkit-transform: rotate(-55deg);
+			transform: rotate(-55deg);
+		}
+		.pic3{
+			position: absolute;
+			top: 100px;
+			left: 400px;
+			-webkit-transform: rotate(-115deg);
+			transform: rotate(-115deg);
+		}
+		.pic4{
+			position: absolute;
+			top: 200px;
+			left: 600px;
+			-webkit-transform: rotate(65deg);
+			transform: rotate(65deg);
+		}
+		.pic5{
+			position: absolute;
+			top: 100px;
+			left: 900px;
+			-webkit-transform: rotate(-65deg);
+			transform: rotate(-65deg);
+
+		}
+		.pic:hover{
+			-webkit-transform: rotate(0deg) scale(1.2);
+			transform: rotate(0deg) scale(1.2);
+			box-shadow: 10px 10px 10px rgba(100,100,100,0.6);
+			-webkit-box-shadow: 10px 10px 10px rgba(100,100,100,0.6);
+			z-index: 2;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<img class="pic pic1" src="img/mm1.jpg" alt="">
+		<img class="pic pic2" src="img/mm2.jpg" alt="">
+		<img class="pic pic3" src="img/mm3.jpg" alt="">
+		<img class="pic pic4" src="img/mm4.jpg" alt="">
+		<img class="pic pic5" src="img/mm5.jpg" alt="">
+	</div>
+
+	
+</body>
+</html>

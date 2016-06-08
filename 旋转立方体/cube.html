@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cube</title>
+	<style>
+		body{
+			background: #000;
+			-webkit-perspective: 800px;
+			perspective: 800px;
+			-webkit-perspective-origin: center center;
+			perspective-origin: center center;
+
+			
+		}
+		.container{
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			position: relative;
+			-wenkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-animation: rotate 3s linear infinite;
+			animation: rotate 3s linear infinite;
+			
+		}
+		@-webkit-keyframes rotate{
+			/*0%{
+				-webkit-transform:rotateY(0deg) ;
+				
+			}
+			100%{
+				-webkit-transform:rotateY(360deg) ;
+				
+			}*/
+
+
+			0%{
+				-webkit-transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				-webkit-transform-origin: center center;
+			}
+			100%{
+				-webkit-transform:rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+				-webkit-transform-origin: center center; 
+			}
+
+		}
+
+
+
+		.cube{
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			font-size: 100px;
+			border: 1px solid #fff;
+			background: rgba(255,255,255,0.6);
+			position: absolute;
+			left: 50%;
+			margin-left: -100px;
+			border-radius: 10px;
+			color: #fff;
+				
+		}
+		.cube1{
+			-wenkit-transform:  rotateX(90deg) translateZ(100px);
+			transform:  rotateX(90deg) translateZ(100px);
+			background: rgba(128,0,128,.5);
+		}
+		.cube3{
+			-wenkit-transform:  rotateY(90deg) translateZ(100px);
+			transform:  rotateY(90deg) translateZ(100px);
+			background: rgba(255,0,255,.5);
+		}
+		.cube5{
+			-wenkit-transform:  rotateY(-90deg) translateZ(100px);
+			transform:  rotateY(-90deg) translateZ(100px);
+			background: rgba(255,153,204,.5);
+		}
+		.cube6{
+			-wenkit-transform:  rotateX(-90deg) translateZ(100px);
+			transform:  rotateX(-90deg) translateZ(100px);
+			background: rgba(0,204,255,.5);
+		}
+		.cube4{
+			-wenkit-transform:  rotateY(-180deg) translateZ(100px);
+			transform:  rotateY(-180deg) translateZ(100px);
+			background: rgba(153,204,255,.5);
+		}
+		.cube2{
+			-wenkit-transform:   translateZ(100px);
+			transform:   translateZ(100px);
+			background: rgba(0,255,255,.5);
+		}
+
+		.x{
+			border: 5px solid #fff;
+			width: 200px;
+			height: 200px;
+			/*display: inline-block;
+			float: left;*/
+
+			display: flex;
+    		display: -webkit-flex;
+    		justify-content: center;
+    		align-items: center;
+    		border-radius: 50%;
+    		position: relative;
+    		-webkit-animation: x 10s linear infinite;
+    		animation: x 10s linear infinite;
+		}
+		@-webkit-keyframes x{
+			0%{
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg); 
+
+			}
+			100%{
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg); 
+			}
+		}
+
+		.y{
+			position: absolute;
+			top: -10px;
+			display: inline-block;
+			width: 23px;
+			height: 23px;
+			border-radius: 50%;
+			background: #06c;
+		}
+		.o{
+			width: 50px;
+			height: 50px;
+			background: yellow;
+			border-radius: 50%;
+			background: #fc3;
+		    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.22, rgb(204,153,0)), color-stop(1, rgb(255,219,112)) );
+		    background-image: -moz-linear-gradient( center bottom, rgb(204,153,0) 22%, rgb(255,219,112) 100% );
+		    -webkit-box-shadow: 0 0 50px #c90;
+		    -moz-box-shadow: 0 0 50px #c90;
+		    box-shadow: 0 0 50px #c90;
+		}
+		.a{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border: 2px solid #dfd3a9;
+			display: inline-block;
+			top: -12px;
+			border-radius: 15px;
+			-webkit-transform: skewY(40deg);
+
+		}
+		.c{
+			width: 0;
+			height: 0;
+			border-top: 100px solid transparent;
+			border-right: 100px solid #fc3;
+			border-bottom: 100px solid #fc3;
+			border-left: 100px solid #fc3;
+			/*background: #fc3;*/
+		    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.22, rgb(204,153,0)), color-stop(1, rgb(255,219,112)) );
+		    background-image: -moz-linear-gradient( center bottom, rgb(204,153,0) 22%, rgb(255,219,112) 100% );
+		    border-radius: 50%;
+		   
+		    -webkit-animation: c 3s linear infinite;
+		    animation: c 3s linear infinite;
+		}
+		@-webkit-keyframes c{
+			0%{
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg); 
+			}
+			100%{
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg); 
+
+			}
+		}
+
+		
+	</style>
+</head>
+<body>
+
+
+
+	<div class="container">
+		<div class="cube cube1">1</div>
+		<div class="cube cube3">3</div>
+		<div class="cube cube5">5</div>
+		<div class="cube cube6">6</div>
+		<div class="cube cube4">4</div>
+		<div class="cube cube2">2</div>
+	</div>
+
+
+	<div class="x">
+		
+			<span class="y"></span>
+			<span class="a"></span>
+		
+		<div class="o"></div>
+	</div>
+	<br>
+	<br>
+
+
+	<div class="c">
+
+		
+	</div>
+
+
+
+	
+	
+
+	
+	
+</body>
+</html>

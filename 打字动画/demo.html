@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background: #000;
+			color: rgb(59,252,52);
+			font-family: Courier;
+		}
+		
+		#div{
+			overflow: hidden;
+			white-space: nowrap;
+			font-size: 20px; 
+			border-right: 1px solid;
+			-webkit-animation: typing 12s infinite,caret 1s infinite;
+		}
+
+		@-webkit-keyframes typing{
+			from{
+				width: 0;
+			}	
+		}
+
+		@-webkit-keyframes caret{
+			from,to{
+				border-color: transparent;
+			}
+
+			50%{
+				border-color: currentColor; /*color:*/
+			}
+
+			/*50%{
+				border-color: transparent;
+			}*/
+			
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="div">&lt;script&gt;console.log("Hello World!");&lt;/script&gt; </div>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+
+
+	$div = $('#div');
+	var length = $div.text().length;
+	$div.width(length +"ch");
+	$div.css('animationTimingFunction',"steps("+length+"),steps(1)");
+
+
+
+
+</script>	
+</body>
+</html>
