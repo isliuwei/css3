@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>demo</title>
+	<!-- CSS | font-awesome -->
+    <!-- Credits: http://fortawesome.github.io/Font-Awesome/icons/ -->
+	<link rel="stylesheet" type="text/css" href="font-awesome.min.css" />
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			-webkit-font-smoothing: antialiased;
+		}
+		
+		#nav a,input{
+			text-decoration: none;
+			display: block;
+			width: 20%;
+			height: 40px;
+			background: #ccc;
+			position: fixed;
+			bottom: 0;
+			text-align: center;
+			line-height: 40px;
+			cursor: pointer;
+		}
+		#nav input{
+			z-index: 1000;
+			opacity: 0;
+
+		}
+		#nav a{
+			z-index: 10;
+			font-weight: 900;
+			font-size: 16px;
+			color: #fff;
+			background: #e23a6e;
+
+		}
+		
+		
+		
+		
+		#nav input[id='nav1'],#nav input[id='nav1'] + a{
+			left: 0;
+		}
+		#nav input[id='nav2'],#nav input[id='nav2'] + a{
+			left: 20%;
+		}
+		#nav input[id='nav3'],#nav input[id='nav3'] + a{
+			left: 40%;
+		}
+		#nav input[id='nav4'],#nav input[id='nav4'] + a{
+			left: 60%;
+		}
+		#nav input[id='nav5'],#nav input[id='nav5'] + a{
+			left: 80%;
+		}
+
+		#nav input:checked + a{
+			background: #821134;
+		}
+
+		#nav input:checked:hover + a{
+			background: #821134;
+		}
+
+		#nav input:checked + a:after{
+			content:"";
+			width: 0;
+			height: 0;
+			/*方式一*/
+			border: 20px solid transparent;
+			border-bottom-color: #821134;
+			/*方式二*/
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid transparent;
+			border-bottom: 20px solid #821134;
+			/*方式三*/
+			border: 20px solid #821134;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid transparent;
+			margin-left: -20px;
+			position: absolute;
+			/*top: -40px;*/
+			bottom: 100%;
+			left: 50%;
+		}
+
+		#nav input:hover + a{
+			background: #ad244f;
+		}
+		#content{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			left: 0;
+			top: 0;
+			-webkit-transition: all ease 1s;
+			-webkit-transform: translate3d(0,0,0);
+			/*定义当前元素不面向屏幕时是否可见*/
+			-webkit-backface-visibility: hidden;
+		}
+		#content .panel{
+			
+			width: 100%;
+			/*height: 100%;*/
+			height: 1024px;
+			position: relative;
+
+		}
+		#nav input#nav1:checked ~ #content{
+			-webkit-transform: translateY(0px);
+		}
+		#nav input#nav2:checked ~ #content{
+			-webkit-transform: translateY(-1024px);
+			/*top: -1024px;*/
+		}
+		#nav input#nav3:checked ~ #content{
+			-webkit-transform: translateY(-2048px);
+			/*top: -2048px;*/
+		}
+		#nav input#nav4:checked ~ #content{
+			-webkit-transform: translateY(-3072px);
+			/*top: -3072px;*/
+		}
+		#nav input#nav5:checked ~ #content{
+			-webkit-transform: translateY(-4096px);
+			/*top: -4096px;*/
+		}
+
+
+		#content .panel h2{
+		    font-size: 50px;
+		    width: 50%;
+		    height: 54px;
+		    margin: 0 auto;
+		    padding-top: 200px;
+		    text-align: center;
+		   	color: #b8388a;
+		    -webkit-text-shadow: 1px 1px 1px rgba(151,24,64,.0.2);
+		   
+		}
+		
+		#nav input#nav1:checked ~ #content #nav1 h2,
+		#nav input#nav2:checked ~ #content #nav2 h2,
+		#nav input#nav3:checked ~ #content #nav3 h2,
+		#nav input#nav4:checked ~ #content #nav4 h2,
+		#nav input#nav5:checked ~ #content #nav5 h2{
+			-webkit-animation: moveDown 1s ease-in-out 0.3s backwards;
+		}
+
+		@-webkit-keyframes moveDown{
+			0%{
+				-webkit-transform: translateY(-40px);
+				opacity: 0;
+				font-weight: 0;
+			}
+			to{
+				-webkit-transform: translateY(0px);
+				opacity: 1;
+				font-weight: 900;
+			}
+		}
+
+
+		#content .panel p{
+		    line-height: 30px;
+		    font-size: 16px;
+		    width: 60%;
+		    margin: 0 auto;
+		    text-align: justify;
+		    text-indent: 2em;
+		    margin-top: 30px;
+		    color: #b8388a;
+		    
+		}
+		#nav input#nav1:checked ~ #content #nav1 p,
+		#nav input#nav2:checked ~ #content #nav2 p,
+		#nav input#nav3:checked ~ #content #nav3 p,
+		#nav input#nav4:checked ~ #content #nav4 p,
+		#nav input#nav5:checked ~ #content #nav5 p{
+			-webkit-animation: moveUp 1s ease-in-out 0.3s backwards;
+		}
+
+		@-webkit-keyframes moveUp{
+			0%{
+				-webkit-transform: translateY(40px);
+				opacity: 0;
+				font-weight: 0;
+			}
+			to{
+				-webkit-transform: translateY(0px);
+				opacity: 1;
+				font-weight: 900;
+			}
+		}
+
+		#content .panel .panel-icon-box{
+			width: 200px;
+			height: 200px;
+			background: #fa96b5;
+			position: absolute;
+			left: 50%;
+			margin-left: -100px;
+			-webkit-transform: translateY(-50%) rotate(45deg); 
+		}
+		#content .panel .panel-icon-box i{
+			display: block;
+			
+			font-size: 80px;
+			color: #fff;
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			margin-left: -15px;
+			-webkit-transform: rotate(-45deg);
+			
+		}
+
+		#nav input#nav1:checked ~ #content .fa-facebook,
+		#nav input#nav2:checked ~ #content .fa-twitter,
+		#nav input#nav3:checked ~ #content .fa-qq,
+		#nav input#nav4:checked ~ #content .fa-weibo,
+		#nav input#nav5:checked ~ #content .fa-wechat{
+			-webkit-animation: show 0.5s ease-in-out backwards 1s; 
+		}
+
+		@-webkit-keyframes show{
+			0%{
+				-webkit-transform: rotate(-45deg) scale(0.3);
+				opacity: 0;		
+			}
+			to{
+				-webkit-transform: rotate(315deg) scale(1);
+				opacity: 1;
+			}
+		}
+		#content section.color{
+			background: #fa96b5;	
+		}
+		#content section.color p,#content section.color h2{
+			color: #fff;
+		}
+		#content section.color .panel-icon-box{
+			background: #fff;
+		}
+		#content section.color .panel-icon-box>i{
+			color: #fa96b5;
+		}
+
+
+		
+
+
+		
+
+		
+		
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="nav">
+			<input type="radio" id="nav1" name="radio"  checked="checked" >
+			<a href="#nav1">导航一</a>
+			<input type="radio" id="nav2" name="radio">
+			<a href="#nav2">导航二</a>
+			<input type="radio" id="nav3" name="radio">
+			<a href="#nav3">导航三</a>
+			<input type="radio" id="nav4" name="radio">
+			<a href="#nav4">导航四</a>
+			<input type="radio" id="nav5" name="radio">
+			<a href="#nav5">导航五</a>
+			<div id="content">
+				<section class="panel" id="nav1">
+					<div class="panel-icon-box"><i class="fa fa-facebook fa-fw"></i></div>
+					<h2 class="title">CSS Magic 1</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus ducimus corporis, earum ullam tempora debitis, est quasi ipsa modi ratione reprehenderit, iure accusantium aut obcaecati molestiae repellat culpa quisquam.</p>	
+				</section>
+				<section class="panel color" id="nav2">
+					<div class="panel-icon-box"><i class="fa fa-twitter fa-fw"></i></div>
+					<h2 class="title">CSS Magic 2</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus ducimus corporis, earum ullam tempora debitis, est quasi ipsa modi ratione reprehenderit, iure accusantium aut obcaecati molestiae repellat culpa quisquam.</p>
+				</section>
+				<section class="panel" id="nav3">
+					<div class="panel-icon-box"><i class="fa fa-qq fa-fw"></i></div>
+					<h2 class="title">CSS Magic 3</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus ducimus corporis, earum ullam tempora debitis, est quasi ipsa modi ratione reprehenderit, iure accusantium aut obcaecati molestiae repellat culpa quisquam.</p>
+				</section>
+				<section class="panel color" id="nav4">
+					<div class="panel-icon-box"><i class="fa fa-weibo fa-fw"></i></div>
+					<h2 class="title">CSS Magic 4</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus ducimus corporis, earum ullam tempora debitis, est quasi ipsa modi ratione reprehenderit, iure accusantium aut obcaecati molestiae repellat culpa quisquam.</p>
+				</section>
+				<section class="panel" id="nav5">
+					<div class="panel-icon-box"><i class="fa fa-wechat fa-fw"></i></div>
+					<h2 class="title">CSS Magic 5</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas doloribus ducimus corporis, earum ullam tempora debitis, est quasi ipsa modi ratione reprehenderit, iure accusantium aut obcaecati molestiae repellat culpa quisquam.</p>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
