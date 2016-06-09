@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,ol{
+			list-style: none;
+		}
+		body{
+			background: orange;
+		}
+		#nav-bar{
+			width: 30%;
+			float: left;
+			
+		}
+		#nav-bar .menu li{
+			cursor: pointer;
+			margin-bottom: 20px;
+			font-size: 30px;
+
+			color: transparent;
+			text-shadow: 0px 0px 15px #fff;
+
+			/*text-shadow: 10px 10px 10px rgba(255,255,255,0.7);*/
+			font-family: "Comic Sans MS", cursive;
+			-webkit-transition: all 0.3s ease-in-out;
+			-moz-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			-ms-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+
+		}
+		#nav-bar .menu li:hover{
+			color: #fff;
+			padding-left: 20px;
+		}
+		#img-box{
+			float: right;
+			width: 60%;
+			/*background: #f0f;*/
+			position: relative;
+			
+		}
+		#img-box figure{
+			/*width: 60%;*/
+			display: inline;
+			margin: 20px;
+			float: right;
+			position: relative;
+			transition: all 0.3s ease-in-out; 
+			
+		}
+		#img-box figure:nth-of-type(1):hover{
+			-webkit-transform: translate(20px);
+		}
+		#img-box figure:nth-of-type(2):hover{
+			-webkit-transform: translate(-20px);
+		}
+		#img-box figure:nth-of-type(3):hover{
+			-webkit-transform: translate(0px,20px);
+		}
+		#img-box figure:nth-of-type(4):hover{
+			-webkit-transform: translate(20px,20px);
+		}
+		#img-box .fig1 a.slogan{
+			color: #000;
+			text-decoration: none;
+			display: inline-block;
+			padding: 4px 10px;
+			background: #fff;
+			border-radius: 2px;
+			/*margin-left: -220px;*/
+			-webkit-transform: translate(-220px);
+			visibility: hidden;
+			opacity: 0;
+			transition: all 0.3s ease-in-out; 
+		}
+		#img-box .fig1:hover a.slogan{
+			visibility: visible;
+			opacity: 1;
+			/*margin-left: 10px;*/
+			-webkit-transform: translate(10px);
+		}
+		#img-box .fig1 a.slogan:nth-of-type(1){
+			position: absolute;
+			top: 60px;
+			left: 0;
+			transition-delay: 0s;
+		}
+		#img-box .fig1 a:nth-of-type(2){
+			position: absolute;
+			top: 90px;
+			left: 0;
+			transition-delay: 0.2s;
+		}
+		#img-box .fig1 a:nth-of-type(3){
+			position: absolute;
+			top: 120px;
+			left: 0;
+			transition-delay: 0.4s;
+		}
+		#img-box .fig-title{
+			color: #fff;
+			font-size: 20px;
+			display: none;
+		}
+		#img-box .fig3{
+			position: relative;
+		}
+		#img-box .fig3 .mask{
+			color: #fff;
+			font-size: 20px;
+			cursor: pointer;
+			width: 260px;
+			height: 160px;
+			position: absolute;
+			top: 22px;
+			left: 22px;
+			border: 2px solid #fff;
+			opacity: 0;
+			-webkit-transform: rotate(-120deg) skew(30deg,20deg); 
+			transition: all 0.3s ease-in-out; 
+			
+		}
+		#img-box .fig3:hover .mask{
+			background: rgba(255,0,255,0.2);
+			z-index: 999;
+			opacity: 1;
+			-webkit-transform: rotate(0deg); 
+		}
+		#img-box .fig3:hover .pic3{
+			-webkit-transform: translate(10px);
+		}
+		#img-box img{
+			width: 40%;
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			-webkit-box-shadow: 2px 2px  4px rgba(220,220,220,0.7);
+			box-shadow: 10px 10px  10px rgba(220,220,220,0.7);
+			opacity: 1;
+			position: relative;
+			cursor: pointer;
+			-webkit-transition: all 0.3s ease-in-out;
+		}
+		#img-box .pic1{
+			-webkit-transform: rotate(50deg) translate(-500px,-400px);
+			transform: rotate(50deg) translate(-500px,-400px);
+			animation: show 1s ease forwards;
+		}
+		#img-box .pic2{
+			-webkit-transform: rotate(-60deg) translate(900px,-400px);
+			transform: rotate(-60deg) translate(900px,-400px);
+			animation: show 1s ease forwards;
+
+		}
+		#img-box .pic3{
+			-webkit-transform: rotate(-30deg) translate(1000px,-400px);;
+			transform: rotate(-30deg) translate(1000px,-400px);;
+			animation: show 1s ease forwards;
+
+		}
+		#img-box .pic4{
+			-webkit-transform: rotate(75deg) translate(900px,-400px);;
+			transform: rotate(75deg) translate(900px,-400px);;
+			animation: show 1s ease forwards;
+
+		}
+		@-webkit-keyframes show{
+			to{
+				-webkit-transform: rotate(0deg) translate(0px,0px);
+				transform: rotate(0deg) translate(0px,0px);;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div id="nav-bar">
+		<ul class="menu">
+			<li>我是中国人民解放军军人</li>
+			<li>我宣誓</li>
+			<li>绝不叛离军队</li>
+			<li>誓死保卫祖国</li>
+			<li>将士们听党指挥</li>
+			<li>能打胜仗作风优良</li>
+			<li>不惧强敌敢较量</li>
+			<li>为祖国决胜疆场</li>
+		</ul>
+	</div>
+	<div id="img-box">
+		<figure class="fig1">
+			<figcaption class="fig-title">祖国卫士</figcaption>
+			<img class="pic1" src="1.jpg" alt="">
+			<a class="slogan" href="#">来吧！给你不一样的青春！</a>
+			<a class="slogan" href="#">热血报国时</a>
+			<a class="slogan" href="#">投入祖国边疆</a>
+		</figure>
+		<figure>
+			<figcaption class="fig-title">祖国卫士</figcaption>
+			<img class="pic2" src="2.jpg" alt="">
+		</figure>
+		<figure class="fig3">
+			<figcaption class="fig-title">祖国卫士</figcaption>
+			<div class="mask">祖国卫士</div>
+			<img class="pic3" src="3.jpg" alt="">
+			
+		</figure>
+		<figure class="fig4">
+			<figcaption class="fig-title">祖国卫士</figcaption>
+			<img class="pic4" src="4.jpg" alt="">
+		</figure>
+	</div>
+	
+</body>
+</html>
