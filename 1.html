@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background: #000;
+		}
+		.apple{
+			padding: 5px;
+			color:#fff;
+			border-right: 1px solid #fff;
+			animation: show 1s steps(1) infinite;
+		}
+		@-webkit-keyframes show{
+			50%{
+				border-color: transparent;
+			}
+		}
+		.ball{
+			margin-top: 100px;
+			display: block;
+			width: 40px;
+			height: 40px;
+			background: orange;
+			border-radius: 50%;
+			animation: bounce 3s ease-in;
+			/*animation: bounce 3s cubic-bezier(.1,.25,.25);*/
+		}
+		@-webkit-keyframes bounce{
+			60%,80%,to{
+				transform: translateY(400px);
+				/*下落方向为加速 ease-out*/
+				animation-timing-function: ease-out;
+				/*animation-timing-function: ease;*/
+			}
+			70%{
+				transform: translateY(300px);
+			}
+			90%{
+				transform: translateY(360px);
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<span class="apple">Hello,WWDC16.</span>
+	<span class="ball"></span>
+	
+</body>
+</html>
